@@ -121,7 +121,7 @@ const CartPage = () => {
   const handleCancel = () => {
     setConfirmShow(false);
   };
-
+  const { token } = useContext(AuthContext);
   const handleConfirm = async () => {
     const order = {
       userID: localStorage.getItem("userId"),
@@ -447,7 +447,7 @@ const CartPage = () => {
           </Grid>
         </>
       )}
-
+      
       <React.Fragment>
         <Dialog
           open={open}

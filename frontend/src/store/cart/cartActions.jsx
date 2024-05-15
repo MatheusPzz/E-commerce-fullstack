@@ -13,3 +13,9 @@ export const removeFromCart = (id) => {
     id: id,
   };
 };
+
+export const clearCart = () => {  // Action creator to clear the cart
+  return {
+    type: actionTypes.CLEAR_CART,
+  };
+};

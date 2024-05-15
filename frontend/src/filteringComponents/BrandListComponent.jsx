@@ -33,6 +33,7 @@ const BrandListComponent = (props) => {
                       onChange={() => {
                         handleChanges(index);
                       }}
+                      color="secondary"
                       value={item.value}
                     />
                   }

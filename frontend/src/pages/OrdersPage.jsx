@@ -70,10 +70,28 @@ const OrdersPage = () => {
         container
         alignContent="center"
         alignItems="center"
-        justifyContent="space-around"
-        sx={{ paddingTop: 2 }}
+        justifyContent="space-between"
+        sx={{ paddingTop: 2,
+          paddingLeft: 2,
+          paddingRight: 2,
+        }}
       >
-        <Typography variant="h3">Order history</Typography>
+        <Typography 
+        variant="h3"
+        sx={
+          {
+            fontFamily: 'Arial',
+            fontSize: '4rem',
+            fontWeight: 'bold',
+            letterSpacing: '0.1rem',
+            backgroundColor: 'lightGreen',
+            borderRadius: '8px',
+            padding: '5px', 
+          }
+        }
+        >
+          Order history
+          </Typography>
         <Stack direction="row" gap={2}>
           <Tooltip title="Ascending">
             <Button

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { Product } = require("../Models/products");
 const router = express.Router();
 
+
 //Get products from database
 //Get API
 router.get("/", async (req, res) => {

@@ -18,8 +18,9 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   rating: {
-    type: Number,
-    required: true,
+    rating: { type: Number, required: true },  // Average rating
+    rate: { type: Number, required: true },  // Average rating
+    count: { type: Number, required: true }  // Total number of ratings
   },
   stock: {
     type: Number,

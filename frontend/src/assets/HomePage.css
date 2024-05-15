@@ -14,28 +14,5 @@
     margin-bottom: 20px;
   }
 
-  .appHeader {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.appHeader h1 {
-    margin: 0;
-}
 
-.appHeader nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.appFooter {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}

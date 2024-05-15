@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_ITEM } from "./actionTypes";
+import { ADD_TO_CART, REMOVE_ITEM, CLEAR_CART } from "./actionTypes";
 
 const initState = {
   addedItems: [],
@@ -77,20 +77,13 @@ const cartReducer = (state = initState, action) => {
         total: newTotal,
       };
     }
-  } else {
-    /* 
-  if (action.type === ADD_QUANTITY) {
-    let addedItem = state.items.find((item) => item.id === action.id);
-    addedItem.quantity += 1;
-    let newTotal = state.total + addedItem.price;
+  } else if (action.type === CLEAR_CART){
     return {
-      ...state,
-      total: newTotal,
+      addedItems: [],
+      total: 0,
     };
-  }*/
-
-    return state;
   }
+  return state;
 };
 
 export default cartReducer;

@@ -58,14 +58,23 @@ const RegisterForm = (props) => {
 
   return (
     <React.Fragment>
-      <Paper elevation={3} style={{ width: 500 }}>
+      <Paper elevation={5} style={{ width: 600 }}>
+        <h1 style={{ 
+          textAlign: "center", 
+           paddingTop: "20px",
+            fontFamily: 'Arial',
+            fontSize: '30px',
+            fontWeight: 'bold',
+            letterSpacing: '0.1rem',
+            color: '#3f51b5',
+           }}>Register</h1>
         <Grid
           container
           direction="column"
           alignContent="center"
           justifyContent="center"
           gap={5}
-          style={{ paddingTop: "50px" }}
+          style={{ paddingTop: "20px" }}
         >
           <Grid item>
             <TextField
@@ -102,24 +111,43 @@ const RegisterForm = (props) => {
           </Grid>
           {/* Checkbox for admin designation */}
           <Grid item>
-            <FormControlLabel
-              control={<Checkbox checked={isAdmin} onChange={handleAdminChange} />}
-              label="Register as Admin"
-            />
-          </Grid>
-          <Grid item>
-            {error && <Box textAlign="center" color="red">{error}</Box>}
-            <Box textAlign="center" justifyContent="center" sx={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-              <Button variant="contained" onClick={handleRegister} disabled={loading}>
-                {loading ? <CircularProgress size={24} /> : "Register"}
-              </Button>
-              {props?.showSignup && (
-                <Button variant="contained" color="secondary" onClick={props.showSignup}>
-                  Login
-                </Button>
-              )}
-            </Box>
-          </Grid>
+  <FormControlLabel
+    label="Register as admin"
+    control={ <Checkbox checked={isAdmin} onChange={handleAdminChange} />}
+    sx={{
+      flexDirection: 'row-reverse',    // Aligns content to the end of the container (right side)
+      width: 'fit-content',
+      margin: 'auto',
+      marginLeft: '50px',
+      justifyContent: 'end'
+    }}
+  />
+</Grid>
+<Grid item>
+  {error && <Box textAlign="center" color="red">{error}</Box>}
+  <Box
+    textAlign="center"
+    justifyContent="center"
+    sx={{
+      display: "flex",
+      flexDirection: "row",
+      gap: "10px",  // Space between buttons
+      paddingBottom: "20px",  // Padding at the bottom of the Box
+      '& button': {
+        marginBottom: "10px"  // Adds bottom margin to each button if additional spacing is needed
+      }
+    }}
+  >
+    <Button variant="contained" onClick={handleRegister} disabled={loading}>
+      {loading ? <CircularProgress size={24} /> : "Register"}
+    </Button>
+    {props?.showSignup && (
+      <Button variant="contained" color="secondary" onClick={props.showSignup}>
+        Login
+      </Button>
+    )}
+  </Box>
+</Grid>
         </Grid>
       </Paper>
     </React.Fragment>

@@ -48,13 +48,20 @@ const LoginForm = (props) => {
           width: 500,
         }}
       >
+        <h1 style={{ 
+          textAlign: "center",
+          paddingTop: "20px", 
+          fontFamily: "Arial",
+          fontSize: "30px",
+          color: "#3f51b5",
+          }}>Login</h1>
         <Grid
           container
           direction="column"
           alignContent="center"
           justifyContent="center"
           gap={5}
-          style={{ paddingTop: "50px" }}
+          style={{ paddingTop: "20px" }}
         >
           <Grid item>
             <TextField

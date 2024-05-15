@@ -6,6 +6,7 @@ import Pagination from "@mui/material/Pagination";
 import "../App.css";
 
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import SearchComponent from "../filteringComponents/SearchComponent";
 import SortComponent from "../filteringComponents/SortComponent";
@@ -301,10 +302,10 @@ const HomePage = () => {
   return (
     <React.Fragment>
       <NavBar />
-      <Grid container>
-        <Grid item xs={2}>
-          <div className="filters">
-            <Grid container direction="column">
+      <Grid container spacing={2}>
+  <Grid item xs={12} sm={4} md={3} lg={2}>
+    <div className="filters">
+      <Grid container direction="column">
               <Grid item>
                 <Button variant="contained" onClick={handleClearFilters} 
                 style={
@@ -349,9 +350,9 @@ const HomePage = () => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={10}>
-          <div className="products">
-            <Grid container gap={3}>
+        <Grid item xs={12} sm={8} md={9} lg={10}>
+    <div className="products">
+      <Grid container spacing={2}>
               {productList.length !== 0 ? (
                 productList
                   .slice(pagination.from, pagination.to)
@@ -390,6 +391,7 @@ const HomePage = () => {
         </Grid>
       </Grid>
       <br />
+      <Footer /> 
     </React.Fragment>
   );
 };

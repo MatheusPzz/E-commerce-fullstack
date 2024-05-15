@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "Front end for E-Commerce website using mern stack",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Matheus Perazzo / 25133",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -38,4 +39,4 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
   }
-}
+  }

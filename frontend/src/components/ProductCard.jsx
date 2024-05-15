@@ -68,7 +68,7 @@ const ProductCard = (props) => {
     <React.Fragment>
       <Card
         sx={{
-          width: 400,
+          width: 300,
           height: 700,
           display: "flex",
           justifyContent: "space-between",
@@ -77,34 +77,62 @@ const ProductCard = (props) => {
       >
         <CardHeader title={product.title} />
         <CardMedia
-          component="img"
-          height="245"
-          image={product.images || product.image}
-          alt="Product image"
-        />
+  component="img"
+  height="245"
+  image={product.images || product.image}
+  alt="Product image"
+  style={{
+    width: '100%', // Ensures the image takes the full width of the container
+    height: '245px', // Sets a fixed height
+    objectFit: 'scale-down' // Covers the area without distorting the aspect ratio
+  }}
+/>
         <CardContent>
           <Stack direction="column" spacing={1}>
-            <Typography variant="body2" color="text.secondary">
-              {product.description}
-            </Typography>
+          <Typography
+  variant="body2"
+  color="text.secondary"
+  width="100"
+  height="100"
+  sx={{
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitLineClamp: '3',
+    WebkitBoxOrient: 'vertical'
+  }}
+>
+  {product.description}
+</Typography>
             <Stack direction="row" spacing={1}>
               <Rating
                 name="half-rating-read"
-                defaultValue={product.rating}
+                defaultValue={product.rating.rate || product.rating}
                 precision={0.5}
                 readOnly
               />
               <Typography variant="body1" color="text.primary">
-                {product.rating}
+                {product.rating.rate || product.rating}
               </Typography>
             </Stack>
             <Stack direction="column">
               <Typography variant="body1" color="text.primary">
                 {product.price} $
               </Typography>
+              <Stack direction="row" spacing={1}>
               <Typography variant="body1" color="text.primary">
                 Price discount: {product.discountPercentage}%
               </Typography>
+              {token && isAdmin === "true" ? (
+              <Typography variant="body1" color="text.primary">
+                Stock: {product.stock}
+              </Typography>
+              ) : (
+              <Typography variant="body1" color="text.primary">
+                Stock: {product.stock > 0 ? "In stock" : "Out of stock"}
+              </Typography>
+              )}
+              </Stack>
             </Stack>
           </Stack>
         </CardContent>
